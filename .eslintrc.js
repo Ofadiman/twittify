@@ -81,7 +81,7 @@ module.exports = {
     'id-denylist': 'off',
     'id-length': 'off', // Shows an error with some libraries that export very short constants (e.g. ky).
     'id-match': 'off',
-    'implicit-arrow-linebreak': ['error', 'beside'],
+    'implicit-arrow-linebreak': 'off', // Overrides prettier config.
     'indent': 'off', // Rule exists in `@typescript-eslint/eslint-plugin` library.
     'init-declarations': 'off', // Disabled because it shows an error in NestJS test files because all declarations (e.g. services) are uninitialized at the beginning of a test file.
     'jsx-quotes': ['error', 'prefer-double'],

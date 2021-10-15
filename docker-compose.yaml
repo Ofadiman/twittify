@@ -1,8 +1,7 @@
 version: '3.7'
 
 services:
-  backend:
-    container_name: twitter-clone-backend
+  twitter-clone-backend:
     build:
       context: .
       dockerfile: dev.Dockerfile
@@ -18,25 +17,23 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - pg-dev
-      - pg-test
+      - twitter-clone-pg-dev
+      - twitter-clone-pg-test
     # `links` allows referencing services by their names (e.g. `pgdev`) instead of ip addresses.
     links:
-      - pg-dev
-      - pg-test
+      - twitter-clone-pg-dev
+      - twitter-clone-pg-test
     working_dir: /app
     command: yarn start-dev
 
-  pg-dev:
-    container_name: twitter-clone-pg-dev
+  twitter-clone-pg-dev:
     image: library/postgres:13.4-alpine
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
 
-  pg-test:
-    container_name: twitter-clone-pg-test
+  twitter-clone-pg-test:
     image: library/postgres:13.4-alpine
     environment:
       POSTGRES_USER: postgres
