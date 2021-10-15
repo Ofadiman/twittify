@@ -50,7 +50,7 @@ module.exports = {
     'brace-style': 'off', // Rule exists in `@typescript-eslint/eslint-plugin` library.
     'camelcase': 'off', // Shows an error when objects take parameters that are e.g. snake_case (e.g. class validator decorator options).
     'capitalized-comments': 'off',
-    'class-methods-use-this': 'error',
+    'class-methods-use-this': 'off', // This rule has to be turned off frequently anyway because often class methods do not use the `this` keyword.
     'comma-dangle': 'off', // Rule exists in `@typescript-eslint/eslint-plugin` library.
     'comma-spacing': 'off', // Rule exists in `@typescript-eslint/eslint-plugin` library.
     'comma-style': ['error', 'last'],
@@ -766,5 +766,27 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  overrides: [
+    {
+      files: 'src/database/migrations/*.ts',
+      rules: {
+        '@typescript-eslint/explicit-member-accessibility': 'off',
+        '@typescript-eslint/typedef': 'off',
+        'unicorn/filename-case': 'off',
+        'prettier/prettier': [
+          'error',
+          {
+            arrowParens: 'always',
+            printWidth: 120,
+            semi: false,
+            singleQuote: true,
+            quoteProps: 'as-needed',
+            tabWidth: 4,
+            trailingComma: 'none'
+          }
+        ]
+      }
+    }
+  ]
 }

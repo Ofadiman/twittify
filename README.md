@@ -12,7 +12,7 @@ The application is a simplified clone of the popular micro-blogging platform cal
 ### User stories
 
 - Authentication
-  - [ ] As a user, I can register an account.
+  - [x] As a user, I can register an account.
   - [ ] As a user, I can log in.
 - Tweets
   - [ ] As a user, I can create a tweet.

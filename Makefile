@@ -16,3 +16,11 @@ logs:
 
 # Run all docker containers and connect to the backend application logs.
 dev: up logs
+
+# Connect to the database used during development.
+db-dev:
+	@docker-compose exec twitter-clone-pg-dev psql -U postgres
+
+# Connect to the database used during integration tests.
+db-test:
+	@docker-compose exec twitter-clone-pg-test psql -U postgres
