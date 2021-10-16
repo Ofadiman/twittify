@@ -773,6 +773,7 @@ module.exports = {
       rules: {
         '@typescript-eslint/explicit-member-accessibility': 'off',
         '@typescript-eslint/typedef': 'off',
+        'no-await-in-loop': 'off',
         'unicorn/filename-case': 'off',
         'prettier/prettier': [
           'error',
