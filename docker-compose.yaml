@@ -2,24 +2,21 @@ version: '3.7'
 
 services:
   twitter-clone-backend:
+    container_name: twitter-clone-backend
     build:
       context: .
       dockerfile: dev.Dockerfile
-      # Pass arguments to specified dockerfile.
       args:
         - user_id=$UID
         - group_id=$GID
         - user=$USER
-    # Map port 3000 (first) on local machine to port 3000 (second) inside the container.
     ports:
       - "3000:3000"
-    # Those services will start first.
     volumes:
       - .:/app
     depends_on:
       - twitter-clone-pg-dev
       - twitter-clone-pg-test
-    # `links` allows referencing services by their names (e.g. `pgdev`) instead of ip addresses.
     links:
       - twitter-clone-pg-dev
       - twitter-clone-pg-test
@@ -27,15 +24,33 @@ services:
     command: yarn start-dev
 
   twitter-clone-pg-dev:
+    container_name: twitter-clone-pg-dev
     image: library/postgres:13.4-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - type: volume
+        source: twitter-clone-pg-dev
+        target: /var/lib/postgresql/data/
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
 
   twitter-clone-pg-test:
+    container_name: twitter-clone-pg-test
     image: library/postgres:13.4-alpine
+    ports:
+      - "5433:5432"
+    volumes:
+      - type: volume
+        source: twitter-clone-pg-test
+        target: /var/lib/postgresql/data/
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
+
+volumes:
+  twitter-clone-pg-dev:
+  twitter-clone-pg-test:
