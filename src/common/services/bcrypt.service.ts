@@ -6,10 +6,10 @@ export type HashArgs = { data: Buffer | string }
 
 @Injectable()
 export class BcryptService {
-  public readonly SALT_ROUNDS: number = 12
+  public static readonly SALT_ROUNDS: number = 12
 
   public async hash(args: HashArgs): Promise<string> {
-    return bcrypt.hash(args.data, this.SALT_ROUNDS)
+    return bcrypt.hash(args.data, BcryptService.SALT_ROUNDS)
   }
 
   public async compare(args: CompareArgs): Promise<boolean> {

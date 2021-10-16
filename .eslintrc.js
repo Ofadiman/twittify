@@ -306,7 +306,7 @@ module.exports = {
     'import/default': 'error',
     'import/dynamic-import-chunkname': 'error',
     'import/export': 'error',
-    'import/exports-last': 'error',
+    'import/exports-last': 'off', // The rule is annoying to work with.
     'import/extensions': ['error', 'never', { svg: 'always', png: 'always', jpg: 'always' }],
     'import/first': 'error',
     'import/group-exports': 'off', // Does not allow to have multiple exports in 1 file.
