@@ -1,27 +1,35 @@
-import { IsEnum, IsNumberString, IsString } from 'class-validator'
+import { IsEnum, IsNumberString, IsString, Length } from 'class-validator'
 
 import { NodeEnv } from '../../common/enums/node-env.enum'
-import { EnvironmentVariable } from '../enums/environment-variable.enum'
+import { EnvironmentVariables } from '../enums/environment-variables.enum'
+import { EnvironmentVariablesConstraints } from '../enums/environment-variables-constraints.enum'
 
 export class EnvironmentVariablesDto {
   @IsNumberString()
-  public [EnvironmentVariable.ServerPort]: string
+  public [EnvironmentVariables.ServerPort]: string
 
   @IsEnum(NodeEnv)
-  public [EnvironmentVariable.NodeEnv]: NodeEnv
+  public [EnvironmentVariables.NodeEnv]: NodeEnv
 
   @IsString()
-  public [EnvironmentVariable.PostgresDatabase]: string
+  public [EnvironmentVariables.PostgresDatabase]: string
 
   @IsString()
-  public [EnvironmentVariable.PostgresHost]: string
+  public [EnvironmentVariables.PostgresHost]: string
 
   @IsString()
-  public [EnvironmentVariable.PostgresPassword]: string
+  public [EnvironmentVariables.PostgresPassword]: string
 
   @IsNumberString()
-  public [EnvironmentVariable.PostgresPort]: string
+  public [EnvironmentVariables.PostgresPort]: string
 
   @IsString()
-  public [EnvironmentVariable.PostgresUser]: string
+  public [EnvironmentVariables.PostgresUser]: string
+
+  @IsString()
+  @Length(
+    EnvironmentVariablesConstraints.MinimumJwtSecretLength,
+    EnvironmentVariablesConstraints.MaximumJwtSecretLength
+  )
+  public [EnvironmentVariables.JwtSecret]: string
 }

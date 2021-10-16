@@ -1,6 +1,6 @@
 import { pascalCase } from 'change-case'
-import * as execa from 'execa'
-import * as yargs from 'yargs'
+import execa from 'execa'
+import yargs from 'yargs'
 
 // eslint-disable-next-line @typescript-eslint/typedef
 const { name } = yargs(process.argv.slice(2))

@@ -1,9 +1,9 @@
 import { pascalCase } from 'change-case'
-import * as execa from 'execa'
-import * as yargs from 'yargs'
+import execa from 'execa'
+import yargs from 'yargs'
 
 import { NodeEnv } from '../src/common/enums/node-env.enum'
-import { EnvironmentVariable } from '../src/configuration/enums/environment-variable.enum'
+import { EnvironmentVariables } from '../src/configuration/enums/environment-variables.enum'
 
 // eslint-disable-next-line @typescript-eslint/typedef
 const { name } = yargs(process.argv.slice(2))
@@ -19,7 +19,7 @@ const { name } = yargs(process.argv.slice(2))
 /**
  * Generating migrations from typeorm schema changes should always happens on the development environment.
  */
-process.env[EnvironmentVariable.NodeEnv] = NodeEnv.Development
+process.env[EnvironmentVariables.NodeEnv] = NodeEnv.Development
 
 const pascalCaseName: string = pascalCase(name)
 execa.commandSync(
