@@ -11,9 +11,12 @@ const setupOpenApi = (nestApplication: NestApplication): void => {
     .setTitle(`Twitter clone API.`)
     .setDescription(`API documentation for twitter clone application.`)
     .setVersion(`1.0`)
+    .addBasicAuth()
+    .addBearerAuth()
     .build()
+
   const document: OpenAPIObject = SwaggerModule.createDocument(nestApplication, config)
-  SwaggerModule.setup(`api`, nestApplication, document)
+  SwaggerModule.setup(`swagger`, nestApplication, document)
 }
 
 void (async function bootstrap(): Promise<void> {

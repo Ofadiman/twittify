@@ -1,4 +1,5 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common'
+import { Body, Controller, HttpCode, HttpStatus, Post, UseGuards } from '@nestjs/common'
+import { ApiBasicAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger'
 
 import { Account } from './account.entity'
 import { AccountsService } from './accounts.service'
@@ -9,15 +10,21 @@ import { RegisterBodyDto } from './dto/register.dto'
 import { LocalAuthGuard } from './guards/local-auth.guard'
 
 @Controller(`accounts`)
+@ApiTags(AccountsController.name)
 export class AccountsController {
   public constructor(private readonly accountsService: AccountsService) {}
 
+  @ApiCreatedResponse({ description: `Account has been created.` })
   @Post(`register`)
   @PublicRoute()
   public async register(@Body() body: RegisterBodyDto): Promise<void> {
     return this.accountsService.register({ body })
   }
 
+  @ApiBasicAuth()
+  @ApiForbiddenResponse({ description: `Invalid token.` })
+  @ApiOkResponse({ description: `Successfully logged in.`, type: LoginResponseDto })
+  @HttpCode(HttpStatus.OK)
   @Post(`login`)
   @PublicRoute()
   @UseGuards(LocalAuthGuard)
