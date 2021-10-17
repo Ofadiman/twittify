@@ -3,6 +3,7 @@ import { ConfigService } from '@nestjs/config'
 import { JwtModuleOptions } from '@nestjs/jwt'
 import { TypeOrmModuleOptions } from '@nestjs/typeorm'
 
+import { NodeEnv } from '../common/enums/node-env.enum'
 import { SnakeCaseNamingStrategy } from '../database/utils/snake-case-naming-strategy'
 import { EnvironmentVariables } from './enums/environment-variables.enum'
 
@@ -26,6 +27,7 @@ export class ConfigurationService {
       entities: [`${cwd}/dist/**/*.entity.js`],
       host: this.get(EnvironmentVariables.PostgresHost),
       keepConnectionAlive: true,
+      logging: [`error`, `query`],
       migrations: [`${cwd}/dist/src/database/migrations/*.js`],
       migrationsRun: true,
       namingStrategy: new SnakeCaseNamingStrategy(),
@@ -46,5 +48,11 @@ export class ConfigurationService {
         issuer: `twitter-clone`
       }
     }
+  }
+
+  public get isProduction(): boolean {
+    const currentNodeEnv: NodeEnv = this.get(EnvironmentVariables.NodeEnv)
+
+    return currentNodeEnv === NodeEnv.Production
   }
 }

@@ -1,8 +1,9 @@
-import { BadRequestException, Module, ValidationPipe } from '@nestjs/common'
+import { BadRequestException, MiddlewareConsumer, Module, NestModule, ValidationPipe } from '@nestjs/common'
 import { APP_PIPE } from '@nestjs/core'
 import { ValidationError } from 'class-validator'
 
 import { AccountsModule } from './accounts/accounts.module'
+import { BodyLoggerMiddleware } from './common/middlewares/body-logger.middleware'
 import { ConfigurationModule } from './configuration/configuration.module'
 import { DatabaseModule } from './database/database.module'
 import { TweetsModule } from './tweets/tweets.module'
@@ -28,4 +29,8 @@ import { TweetsModule } from './tweets/tweets.module'
     }
   ]
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  public configure(consumer: MiddlewareConsumer): void {
+    consumer.apply(BodyLoggerMiddleware).forRoutes(`*`)
+  }
+}

@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
-export abstract class BaseEntity {
+export class BaseEntity {
   @PrimaryGeneratedColumn()
   @ApiProperty({ example: 15 })
   public readonly id: number

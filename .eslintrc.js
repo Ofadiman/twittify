@@ -268,7 +268,7 @@ module.exports = {
     'prefer-rest-params': 'error',
     'prefer-spread': 'error',
     'prefer-template': 'error',
-    'quote-props': ['error', 'consistent-as-needed'],
+    'quote-props': 'off', // Overrides prettier config.
     'quotes': 'off', // Rule exists in `@typescript-eslint/eslint-plugin` library.
     'radix': 'error',
     'require-atomic-updates': 'error',

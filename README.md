@@ -16,8 +16,8 @@ The application is a simplified clone of the popular micro-blogging platform cal
   - [x] As a user, I can log in.
 - Tweets
   - [x] As a user, I can create a tweet.
-  - [ ] As a user, I can edit my tweets.
-  - [ ] As a user, I can delete my tweets.
+  - [x] As a user, I can edit my tweets.
+  - [x] As a user, I can delete my tweets.
   - [ ] As a user, I can see my timeline (i.e. tweets I've created).
   - [ ] As a user, I can see another user timeline (i.e. tweets they've created).
   - [ ] As a user, I can see my home timeline (i.e. tweets created by people that I'm following).
