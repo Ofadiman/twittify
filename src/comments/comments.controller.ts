@@ -5,42 +5,39 @@ import { SCondition } from '@nestjsx/crud-request/lib/types/request-query.types'
 
 import { AuthenticatedRequest } from '../common/types/authenticated-request.type'
 import {
-  CreateOneTweetBodyDto,
-  CreateOneTweetResponseDto,
-  GetOneTweetResponseDto,
-  UpdateOneTweetBodyDto,
-  UpdateOneTweetResponseDto
-} from './tweet.dto'
-import { Tweet } from './tweet.entity'
-import { TweetsService } from './tweets.service'
+  CreateOneCommentBodyDto,
+  CreateOneCommentResponseDto,
+  GetOneCommentResponseDto,
+  UpdateOneCommentBodyDto,
+  UpdateOneCommentResponseDto
+} from './comment.dto'
+import { Comment } from './comment.entity'
+import { CommentsService } from './comments.service'
 
-@Controller(`tweets`)
-@ApiTags(TweetsController.name)
+@Controller(`comments`)
+@ApiTags(CommentsController.name)
 @ApiBearerAuth()
 @Crud({
   dto: {
-    create: CreateOneTweetBodyDto,
-    update: UpdateOneTweetBodyDto
+    create: CreateOneCommentBodyDto,
+    update: UpdateOneCommentBodyDto
   },
   model: {
-    type: Tweet
-  },
-  query: {
-    maxLimit: 100
+    type: Comment
   },
   routes: {
     createOneBase: {
-      decorators: [ApiCreatedResponse({ type: CreateOneTweetResponseDto })]
+      decorators: [ApiCreatedResponse({ type: CreateOneCommentResponseDto })]
     },
     deleteOneBase: {
-      decorators: [ApiNoContentResponse()]
+      decorators: [ApiNoContentResponse({ description: `The comment has been successfully deleted.` })]
     },
     getOneBase: {
-      decorators: [ApiOkResponse({ type: GetOneTweetResponseDto })]
+      decorators: [ApiOkResponse({ type: GetOneCommentResponseDto })]
     },
-    only: [`createOneBase`, `updateOneBase`, `getOneBase`, `deleteOneBase`],
+    only: [`createOneBase`, `getOneBase`, `updateOneBase`, `deleteOneBase`],
     updateOneBase: {
-      decorators: [ApiOkResponse({ type: UpdateOneTweetResponseDto })]
+      decorators: [ApiOkResponse({ type: UpdateOneCommentResponseDto })]
     }
   }
 })
@@ -55,7 +52,7 @@ import { TweetsService } from './tweets.service'
     }
 
     return {
-      'Tweet.account_id': request.user.id,
+      'Comment.account_id': request.user.id,
       deleteDate: {
         $isnull: true
       }
@@ -71,6 +68,6 @@ import { TweetsService } from './tweets.service'
     }
   }
 })
-export class TweetsController implements CrudController<Tweet> {
-  public constructor(public readonly service: TweetsService) {}
+export class CommentsController implements CrudController<Comment> {
+  public constructor(public readonly service: CommentsService) {}
 }

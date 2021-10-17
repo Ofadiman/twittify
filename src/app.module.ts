@@ -3,13 +3,14 @@ import { APP_PIPE } from '@nestjs/core'
 import { ValidationError } from 'class-validator'
 
 import { AccountsModule } from './accounts/accounts.module'
+import { CommentsModule } from './comments/comments.module'
 import { BodyLoggerMiddleware } from './common/middlewares/body-logger.middleware'
 import { ConfigurationModule } from './configuration/configuration.module'
 import { DatabaseModule } from './database/database.module'
 import { TweetsModule } from './tweets/tweets.module'
 
 @Module({
-  imports: [DatabaseModule, ConfigurationModule, AccountsModule, TweetsModule],
+  imports: [DatabaseModule, ConfigurationModule, AccountsModule, TweetsModule, CommentsModule],
   providers: [
     {
       provide: APP_PIPE,

@@ -23,9 +23,9 @@ The application is a simplified clone of the popular micro-blogging platform cal
   - [ ] As a user, I can see my home timeline (i.e. tweets created by people that I'm following).
   - [ ] As a user, I can see search timeline (i.e. search for tweets created by other users).
 - Comments
-  - [ ] As a user, I can comment on a tweet.
-  - [ ] As a user, I can edit my comments.
-  - [ ] As a user, I can delete my comments.
+  - [x] As a user, I can comment on a tweet.
+  - [x] As a user, I can edit my comments.
+  - [x] As a user, I can delete my comments.
 - Follows
   - [ ] As a user, I can follow users.
   - [ ] As a user, I can be followed by users.
