@@ -22,10 +22,10 @@ const createTweet = (account: Account): Tweet => {
 export class SeedTweets1634412522421 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await seedDatabase(async (): Promise<void> => {
-            const accountRepository: Repository<Account> = queryRunner.manager.getRepository(Account)
+            const accountsRepository: Repository<Account> = queryRunner.manager.getRepository(Account)
             const tweetsRepository: Repository<Tweet> = queryRunner.manager.getRepository(Tweet)
 
-            const accounts: Account[] = await accountRepository.find()
+            const accounts: Account[] = await accountsRepository.find()
 
             for (const account of accounts) {
                 faker.seed(account.id)
