@@ -4,8 +4,8 @@ The application is a simplified clone of the popular micro-blogging platform cal
 
 ### Objectives
 
-- [ ] Learn [@nestjsx/crud](https://github.com/nestjsx/crud) library.
-- [ ] Learn [OpenAPI](https://docs.nestjs.com/openapi/introduction) specification.
+- [x] Learn [@nestjsx/crud](https://github.com/nestjsx/crud) library.
+- [x] Learn [OpenAPI](https://docs.nestjs.com/openapi/introduction) specification.
 - [ ] Learn how to create backend infrastructure on AWS in [IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code) style.
 - [ ] Learn how to deploy backend application to AWS.
 
@@ -20,8 +20,7 @@ The application is a simplified clone of the popular micro-blogging platform cal
   - [x] As a user, I can delete my tweets.
   - [x] As a user, I can see my timeline (i.e. tweets I've created).
   - [x] As a user, I can see another user timeline (i.e. tweets they've created).
-  - [ ] As a user, I can see my home timeline (i.e. tweets created by people that I'm following).
-  - [ ] As a user, I can see search timeline (i.e. search for tweets created by other users).
+  - [x] As a user, I can see my home timeline (i.e. tweets created by people that I'm following).
 - **Comments**
   - [x] As a user, I can comment on a tweet.
   - [x] As a user, I can edit my comments.
@@ -33,4 +32,4 @@ The application is a simplified clone of the popular micro-blogging platform cal
 
 ### Additional requirements
 
-- [ ] The API has OpenAPI documentation.
+- [x] The API has OpenAPI documentation.

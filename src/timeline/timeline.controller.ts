@@ -18,4 +18,11 @@ export class TimelineController {
   public async getMyTimeline(@RequestAccount() account: Account): Promise<TimelineTweet[]> {
     return this.timelineService.getMyTimeline(account)
   }
+
+  @Get(`home`)
+  @ApiOperation({ description: `Get all tweets that come from people followed by currently logged in user.` })
+  @ApiOkResponse({ type: [TimelineTweet] })
+  public async getHomeTimeline(@RequestAccount() account: Account): Promise<TimelineTweet[]> {
+    return this.timelineService.getHomeTimeline(account)
+  }
 }
