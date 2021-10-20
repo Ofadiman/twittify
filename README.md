@@ -11,10 +11,10 @@ The application is a simplified clone of the popular micro-blogging platform cal
 
 ### User stories
 
-- Authentication
+- **Authentication**
   - [x] As a user, I can register an account.
   - [x] As a user, I can log in.
-- Tweets
+- **Tweets**
   - [x] As a user, I can create a tweet.
   - [x] As a user, I can edit my tweets.
   - [x] As a user, I can delete my tweets.
@@ -22,13 +22,14 @@ The application is a simplified clone of the popular micro-blogging platform cal
   - [ ] As a user, I can see another user timeline (i.e. tweets they've created).
   - [ ] As a user, I can see my home timeline (i.e. tweets created by people that I'm following).
   - [ ] As a user, I can see search timeline (i.e. search for tweets created by other users).
-- Comments
+- **Comments**
   - [x] As a user, I can comment on a tweet.
   - [x] As a user, I can edit my comments.
   - [x] As a user, I can delete my comments.
-- Follows
-  - [ ] As a user, I can follow users.
-  - [ ] As a user, I can be followed by users.
+- **Follows**
+  - [x] As a user, I can follow users.
+  - [x] As a user, I can be followed by users.
+  - [x] As a user, I can unfollow users.
 
 ### Additional requirements
 

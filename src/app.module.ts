@@ -7,10 +7,11 @@ import { CommentsModule } from './comments/comments.module'
 import { BodyLoggerMiddleware } from './common/middlewares/body-logger.middleware'
 import { ConfigurationModule } from './configuration/configuration.module'
 import { DatabaseModule } from './database/database.module'
+import { FollowsModule } from './follows/follows.module'
 import { TweetsModule } from './tweets/tweets.module'
 
 @Module({
-  imports: [DatabaseModule, ConfigurationModule, AccountsModule, TweetsModule, CommentsModule],
+  imports: [DatabaseModule, ConfigurationModule, AccountsModule, TweetsModule, CommentsModule, FollowsModule],
   providers: [
     {
       provide: APP_PIPE,

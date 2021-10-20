@@ -13,6 +13,8 @@
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
     "migrations-create": "ts-node scripts/migrations-create.ts",
     "migrations-generate": "ts-node scripts/migrations-generate.ts",
+    "migrations-revert": "export NODE_ENV=development && ts-node --require tsconfig-paths/register node_modules/typeorm/cli.js migration:revert",
+    "migrations-run": "export NODE_ENV=development && ts-node --require tsconfig-paths/register node_modules/typeorm/cli.js migration:run",
     "premigrations-generate": "yarn build",
     "premigrations-run": "yarn build",
     "start-debug": "export NODE_ENV=development && rimraf dist && nest start --debug --watch",
