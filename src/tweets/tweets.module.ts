@@ -7,7 +7,7 @@ import { TweetsService } from './tweets.service'
 
 @Module({
   controllers: [TweetsController],
-  exports: [TweetsService],
+  exports: [TweetsService, TypeOrmModule.forFeature([Tweet])],
   imports: [TypeOrmModule.forFeature([Tweet])],
   providers: [TweetsService]
 })

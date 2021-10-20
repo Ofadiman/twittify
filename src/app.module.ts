@@ -8,10 +8,19 @@ import { BodyLoggerMiddleware } from './common/middlewares/body-logger.middlewar
 import { ConfigurationModule } from './configuration/configuration.module'
 import { DatabaseModule } from './database/database.module'
 import { FollowsModule } from './follows/follows.module'
+import { TimelineModule } from './timeline/timeline.module'
 import { TweetsModule } from './tweets/tweets.module'
 
 @Module({
-  imports: [DatabaseModule, ConfigurationModule, AccountsModule, TweetsModule, CommentsModule, FollowsModule],
+  imports: [
+    DatabaseModule,
+    ConfigurationModule,
+    AccountsModule,
+    TweetsModule,
+    CommentsModule,
+    FollowsModule,
+    TimelineModule
+  ],
   providers: [
     {
       provide: APP_PIPE,

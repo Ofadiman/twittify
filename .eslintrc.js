@@ -104,7 +104,7 @@ module.exports = {
     'multiline-ternary': 'off', // Overrides prettier config.
     'new-cap': 'off', // Shows an error that decorators cannot be used.
     'new-parens': 'error',
-    'newline-per-chained-call': 'error',
+    'newline-per-chained-call': 'off', // Overrides prettier config.
     'no-alert': 'error',
     'no-array-constructor': 'error',
     'no-async-promise-executor': 'error',
