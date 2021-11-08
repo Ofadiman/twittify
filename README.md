@@ -1,15 +1,13 @@
-# Twitter clone
+# Twittify
 
 The application is a simplified clone of the popular micro-blogging platform called Twitter.
 
-### Objectives
+## Objectives
 
 - [x] Learn [@nestjsx/crud](https://github.com/nestjsx/crud) library.
 - [x] Learn [OpenAPI](https://docs.nestjs.com/openapi/introduction) specification.
-- [ ] Learn how to create backend infrastructure on AWS in [IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code) style.
-- [ ] Learn how to deploy backend application to AWS.
 
-### User stories
+## User stories
 
 - **Authentication**
   - [x] As a user, I can register an account.
@@ -30,6 +28,6 @@ The application is a simplified clone of the popular micro-blogging platform cal
   - [x] As a user, I can be followed by users.
   - [x] As a user, I can unfollow users.
 
-### Additional requirements
+## Technical requirements
 
 - [x] The API has OpenAPI documentation.
